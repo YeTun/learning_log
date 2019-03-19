@@ -1,4 +1,3 @@
 .idea 
 venv 
-learning_logs/__pycache__
-learning_log/__pycache__
+*.sqlite3
