@@ -3,7 +3,7 @@ from learning_logs.models import Topic, Entry
 
 
 class TopicAdmin(admin.ModelAdmin):
-    list_display = ('text', 'date_added')
+    list_display = ('text', 'date_added', 'owner')
 
 
 class EntryAdmin(admin.ModelAdmin):
@@ -13,5 +13,3 @@ class EntryAdmin(admin.ModelAdmin):
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Entry, EntryAdmin)
 
-# admin.site.register(Topic)
-# admin.site.register(Entry)

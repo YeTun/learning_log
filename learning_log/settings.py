@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'learning_logs.apps.LearningLogsConfig',
+    'users.apps.UsersConfig',
+    # Third party apps
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# learning_log project setting
+LOGIN_REDIRECT_URL = 'learning_logs'
+LOGIN_URL = '/users/login/'
+
+# Settings for django-bootstrap3
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
