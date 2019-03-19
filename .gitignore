@@ -1,9 +1,3 @@
 .idea 
 venv 
-<<<<<<< HEAD
-=======
-Learning/
-learning_logs/__pycache__/
-learning_log/__pycache__/
->>>>>>> b199f45b06af72ff86bed26dfd837c0a48c626b6
 *.sqlite3
