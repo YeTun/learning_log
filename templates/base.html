@@ -1,3 +1,4 @@
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +8,51 @@
     {% else %}
         <title>Learning Log</title>
     {% endif %}
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
 </head>
 <body>
-    <p>
-        <a href="{% url 'index' %}">Learning Log</a> -
-        <a href="{% url 'about' %}">About</a> -
-        <a href="{% url 'topics' %}">Topics</a> -
+    <!--Static navbar-->
+    <nav class="navbar navbar-default nav-static-top">
+        <div class="container">
 
-        {% if user.is_authenticated %}
-            Hello, {{ user.username }}.
-            <a href="{% url 'logout' %}">log out</a>
-        {% else %}
-            <a href="{% url 'register' %}">register</a>
-            <a href="{% url 'login' %}">log in</a>
-        {% endif %}
-    </p>
-    {% block content %}
-    {% endblock content %}
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                </button>
+                <a class="nav-brand" href="{% url 'index' %}">Learning Log</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'topics' %}">Topics</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><h5>Hello, {{ user.username }}.</h5></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}">Log in</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!--Defining the main part of the page-->
+    <div class="container">
+
+        <div class="page-header">
+            {% block header %}{% endblock header %}
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
 </body>
 </html>
